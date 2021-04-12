@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <v-progress-circular
+      indeterminate
+      color="primary"
+    />
+    <h1>{{msg}}</h1>
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
@@ -94,7 +99,12 @@
 <script>
   export default {
     name: 'HelloWorld',
-
+    props: {
+      msg: {
+        type: String,
+        default: '',
+      },
+    },
     data: () => ({
       ecosystem: [
         {

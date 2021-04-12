@@ -1,6 +1,7 @@
 // Imports
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import vuetify from '../../src/plugins/vuetify'
 import { makeDecorator } from '@storybook/addons'
 
 // Utilities
@@ -20,10 +21,10 @@ export default makeDecorator({
     const searchParams = new URL(window.location).searchParams
     const dark = searchParams.get('eyes-variation') === 'dark'
     const rtl = searchParams.get('eyes-variation') === 'rtl'
-    const vuetify = new Vuetify(deepmerge({
-      rtl,
-      theme: { dark },
-    }, parameters))
+    // const vuetify = new Vuetify(deepmerge({
+    //   rtl,
+    //   theme: { dark },
+    // }, parameters))
     const WrappedComponent = storyFn(context)
 
     return Vue.extend({

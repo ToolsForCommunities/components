@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name ctlib ./src/index.js",
     "lint": "vue-cli-service lint",
     "build:storybook": "build-storybook",
     "serve:storybook": "start-storybook -p 6006"
@@ -42,6 +43,11 @@
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.7.0"
   },
+  "peerDependencies": {
+    "sass-loader": "^10.0.0",
+    "vue": "^2.6.11",
+    "vuetify": "^2.4.0"
+  },
   "eslintConfig": {
     "root": true,
     "env": {
@@ -60,5 +66,7 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "main": "dist/ctlib.common.js",
+  "_main": "src/index.js"
 }
