@@ -1227,13 +1227,6 @@ module.exports = function (it) {
 
 /***/ }),
 
-/***/ "36a7":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "37e8":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3211,49 +3204,6 @@ module.exports = store.inspectSource;
 
 /***/ }),
 
-/***/ "8a79":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var $ = __webpack_require__("23e7");
-var getOwnPropertyDescriptor = __webpack_require__("06cf").f;
-var toLength = __webpack_require__("50c4");
-var notARegExp = __webpack_require__("5a34");
-var requireObjectCoercible = __webpack_require__("1d80");
-var correctIsRegExpLogic = __webpack_require__("ab13");
-var IS_PURE = __webpack_require__("c430");
-
-// eslint-disable-next-line es/no-string-prototype-endswith -- safe
-var $endsWith = ''.endsWith;
-var min = Math.min;
-
-var CORRECT_IS_REGEXP_LOGIC = correctIsRegExpLogic('endsWith');
-// https://github.com/zloirock/core-js/pull/702
-var MDN_POLYFILL_BUG = !IS_PURE && !CORRECT_IS_REGEXP_LOGIC && !!function () {
-  var descriptor = getOwnPropertyDescriptor(String.prototype, 'endsWith');
-  return descriptor && !descriptor.writable;
-}();
-
-// `String.prototype.endsWith` method
-// https://tc39.es/ecma262/#sec-string.prototype.endswith
-$({ target: 'String', proto: true, forced: !MDN_POLYFILL_BUG && !CORRECT_IS_REGEXP_LOGIC }, {
-  endsWith: function endsWith(searchString /* , endPosition = @length */) {
-    var that = String(requireObjectCoercible(this));
-    notARegExp(searchString);
-    var endPosition = arguments.length > 1 ? arguments[1] : undefined;
-    var len = toLength(that.length);
-    var end = endPosition === undefined ? len : min(toLength(endPosition), len);
-    var search = String(searchString);
-    return $endsWith
-      ? $endsWith.call(that, search, end)
-      : that.slice(end - search.length, end) === search;
-  }
-});
-
-
-/***/ }),
-
 /***/ "8aa5":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3278,13 +3228,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__8bbf__;
 /***/ }),
 
 /***/ "8d4f":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "8efc":
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
@@ -3516,13 +3459,6 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
   }
 });
 
-
-/***/ }),
-
-/***/ "9b19":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "img/logo.63a7d78d.svg";
 
 /***/ }),
 
@@ -6292,16 +6228,16 @@ var ComponentLibrary = {
     var vuetify = _ref.vuetify;
 
     if (!vuetify) {
-      console.log('Vuetify not passed. Something is not working...');
+      console.warn('Vuetify not passed. Components not loaded');
+      return false;
     } // Install vuetify...
 
 
     Vue.use(vuetify); // Install the components
 
-    console.log('YEY! I am installling a pluginnn!!');
     Object.keys(src_components).forEach(function (name) {
       Vue.component(name, src_components[name]);
-    }); // Vue.component('HelloWorld', HelloWorld);
+    });
   }
 };
 /* harmony default export */ var src_0 = (ComponentLibrary);
@@ -6411,23 +6347,14 @@ __webpack_require__.d(easing_patterns_namespaceObject, "easeInQuint", function()
 __webpack_require__.d(easing_patterns_namespaceObject, "easeOutQuint", function() { return easeOutQuint; });
 __webpack_require__.d(easing_patterns_namespaceObject, "easeInOutQuint", function() { return easeInOutQuint; });
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"151a7ffb-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=template&id=354da181&
-var HelloWorldvue_type_template_id_354da181_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-container',[_c('v-progress-circular',{attrs:{"indeterminate":"","color":"primary"}}),_c('h1',[_vm._v(_vm._s(_vm.msg))]),_c('v-row',{staticClass:"text-center"},[_c('v-col',{attrs:{"cols":"12"}},[_c('v-img',{staticClass:"my-3",attrs:{"src":__webpack_require__("9b19"),"contain":"","height":"200"}})],1),_c('v-col',{staticClass:"mb-4"},[_c('h1',{staticClass:"display-2 font-weight-bold mb-3"},[_vm._v(" Welcome to Vuetify ")]),_c('p',{staticClass:"subheading font-weight-regular"},[_vm._v(" For help and collaboration with other Vuetify developers, "),_c('br'),_vm._v("please join our online "),_c('a',{attrs:{"href":"https://community.vuetifyjs.com","target":"_blank"}},[_vm._v("Discord Community")])])]),_c('v-col',{staticClass:"mb-5",attrs:{"cols":"12"}},[_c('h2',{staticClass:"headline font-weight-bold mb-3"},[_vm._v(" What's next? ")]),_c('v-row',{attrs:{"justify":"center"}},_vm._l((_vm.whatsNext),function(next,i){return _c('a',{key:i,staticClass:"subheading mx-3",attrs:{"href":next.href,"target":"_blank"}},[_vm._v(" "+_vm._s(next.text)+" ")])}),0)],1),_c('v-col',{staticClass:"mb-5",attrs:{"cols":"12"}},[_c('h2',{staticClass:"headline font-weight-bold mb-3"},[_vm._v(" Important Links ")]),_c('v-row',{attrs:{"justify":"center"}},_vm._l((_vm.importantLinks),function(link,i){return _c('a',{key:i,staticClass:"subheading mx-3",attrs:{"href":link.href,"target":"_blank"}},[_vm._v(" "+_vm._s(link.text)+" ")])}),0)],1),_c('v-col',{staticClass:"mb-5",attrs:{"cols":"12"}},[_c('h2',{staticClass:"headline font-weight-bold mb-3"},[_vm._v(" Ecosystem ")]),_c('v-row',{attrs:{"justify":"center"}},_vm._l((_vm.ecosystem),function(eco,i){return _c('a',{key:i,staticClass:"subheading mx-3",attrs:{"href":eco.href,"target":"_blank"}},[_vm._v(" "+_vm._s(eco.text)+" ")])}),0)],1)],1)],1)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"151a7ffb-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=template&id=3169d4e0&
+var HelloWorldvue_type_template_id_3169d4e0_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-container',[_c('v-progress-circular',{attrs:{"indeterminate":"","color":"primary"}}),_c('h1',[_vm._v(_vm._s(_vm.msg))]),_c('v-row',{staticClass:"text-center"},[_c('v-col',{staticClass:"mb-4"},[_c('h1',{staticClass:"display-2 font-weight-bold mb-3"},[_vm._v(" Welcome to Vuetify ")]),_c('p',{staticClass:"subheading font-weight-regular"},[_vm._v(" For help and collaboration with other Vuetify developers, "),_c('br'),_vm._v("please join our online "),_c('a',{attrs:{"href":"https://community.vuetifyjs.com","target":"_blank"}},[_vm._v("Discord Community")])])]),_c('v-col',{staticClass:"mb-5",attrs:{"cols":"12"}},[_c('h2',{staticClass:"headline font-weight-bold mb-3"},[_vm._v(" What's next? ")]),_c('v-row',{attrs:{"justify":"center"}},_vm._l((_vm.whatsNext),function(next,i){return _c('a',{key:i,staticClass:"subheading mx-3",attrs:{"href":next.href,"target":"_blank"}},[_vm._v(" "+_vm._s(next.text)+" ")])}),0)],1),_c('v-col',{staticClass:"mb-5",attrs:{"cols":"12"}},[_c('h2',{staticClass:"headline font-weight-bold mb-3"},[_vm._v(" Important Links ")]),_c('v-row',{attrs:{"justify":"center"}},_vm._l((_vm.importantLinks),function(link,i){return _c('a',{key:i,staticClass:"subheading mx-3",attrs:{"href":link.href,"target":"_blank"}},[_vm._v(" "+_vm._s(link.text)+" ")])}),0)],1),_c('v-col',{staticClass:"mb-5",attrs:{"cols":"12"}},[_c('h2',{staticClass:"headline font-weight-bold mb-3"},[_vm._v(" Ecosystem ")]),_c('v-row',{attrs:{"justify":"center"}},_vm._l((_vm.ecosystem),function(eco,i){return _c('a',{key:i,staticClass:"subheading mx-3",attrs:{"href":eco.href,"target":"_blank"}},[_vm._v(" "+_vm._s(eco.text)+" ")])}),0)],1)],1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/HelloWorld.vue?vue&type=template&id=354da181&
+// CONCATENATED MODULE: ./src/components/HelloWorld.vue?vue&type=template&id=3169d4e0&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -7945,273 +7872,9 @@ function grid_VGrid(name) {
     }), children);
   }
 }));
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.ends-with.js
-var es_string_ends_with = __webpack_require__("8a79");
+// EXTERNAL MODULE: ./node_modules/vuetify/src/components/VProgressCircular/VProgressCircular.sass
+var VProgressCircular = __webpack_require__("8d4f");
 
-// EXTERNAL MODULE: ./node_modules/vuetify/src/components/VImg/VImg.sass
-var VImg = __webpack_require__("8efc");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.find.js
-var es_array_find = __webpack_require__("7db0");
-
-// CONCATENATED MODULE: ./node_modules/vuetify/lib/directives/intersect/index.js
-
-
-
-function inserted(el, binding) {
-  var modifiers = binding.modifiers || {};
-  var value = binding.value;
-
-  var _ref = _typeof(value) === 'object' ? value : {
-    handler: value,
-    options: {}
-  },
-      handler = _ref.handler,
-      options = _ref.options;
-
-  var observer = new IntersectionObserver(function () {
-    var entries = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-    var observer = arguments.length > 1 ? arguments[1] : undefined;
-
-    /* istanbul ignore if */
-    if (!el._observe) return; // Just in case, should never fire
-    // If is not quiet or has already been
-    // initted, invoke the user callback
-
-    if (handler && (!modifiers.quiet || el._observe.init)) {
-      var isIntersecting = Boolean(entries.find(function (entry) {
-        return entry.isIntersecting;
-      }));
-      handler(entries, observer, isIntersecting);
-    } // If has already been initted and
-    // has the once modifier, unbind
-
-
-    if (el._observe.init && modifiers.once) unbind(el); // Otherwise, mark the observer as initted
-    else el._observe.init = true;
-  }, options);
-  el._observe = {
-    init: false,
-    observer: observer
-  };
-  observer.observe(el);
-}
-
-function unbind(el) {
-  /* istanbul ignore if */
-  if (!el._observe) return;
-
-  el._observe.observer.unobserve(el);
-
-  delete el._observe;
-}
-
-var Intersect = {
-  inserted: inserted,
-  unbind: unbind
-};
-/* harmony default export */ var intersect = (Intersect);
-// EXTERNAL MODULE: ./node_modules/vuetify/src/components/VResponsive/VResponsive.sass
-var VResponsive = __webpack_require__("36a7");
-
-// CONCATENATED MODULE: ./node_modules/vuetify/lib/mixins/measurable/index.js
-
-// Helpers
- // Types
-
-
-/* harmony default export */ var measurable = (external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-  name: 'measurable',
-  props: {
-    height: [Number, String],
-    maxHeight: [Number, String],
-    maxWidth: [Number, String],
-    minHeight: [Number, String],
-    minWidth: [Number, String],
-    width: [Number, String]
-  },
-  computed: {
-    measurableStyles: function measurableStyles() {
-      var styles = {};
-      var height = convertToUnit(this.height);
-      var minHeight = convertToUnit(this.minHeight);
-      var minWidth = convertToUnit(this.minWidth);
-      var maxHeight = convertToUnit(this.maxHeight);
-      var maxWidth = convertToUnit(this.maxWidth);
-      var width = convertToUnit(this.width);
-      if (height) styles.height = height;
-      if (minHeight) styles.minHeight = minHeight;
-      if (minWidth) styles.minWidth = minWidth;
-      if (maxHeight) styles.maxHeight = maxHeight;
-      if (maxWidth) styles.maxWidth = maxWidth;
-      if (width) styles.width = width;
-      return styles;
-    }
-  }
-}));
-// CONCATENATED MODULE: ./node_modules/vuetify/lib/util/mixins.js
-/* eslint-disable max-len, import/export, no-use-before-define */
-
-function mixins() {
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key];
-  }
-
-  return external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend({
-    mixins: args
-  });
-}
-// CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VResponsive/VResponsive.js
-
- // Mixins
-
- // Utils
-
-
-/* @vue/component */
-
-/* harmony default export */ var VResponsive_VResponsive = (mixins(measurable).extend({
-  name: 'v-responsive',
-  props: {
-    aspectRatio: [String, Number],
-    contentClass: String
-  },
-  computed: {
-    computedAspectRatio: function computedAspectRatio() {
-      return Number(this.aspectRatio);
-    },
-    aspectStyle: function aspectStyle() {
-      return this.computedAspectRatio ? {
-        paddingBottom: 1 / this.computedAspectRatio * 100 + '%'
-      } : undefined;
-    },
-    __cachedSizer: function __cachedSizer() {
-      if (!this.aspectStyle) return [];
-      return this.$createElement('div', {
-        style: this.aspectStyle,
-        staticClass: 'v-responsive__sizer'
-      });
-    }
-  },
-  methods: {
-    genContent: function genContent() {
-      return this.$createElement('div', {
-        staticClass: 'v-responsive__content',
-        class: this.contentClass
-      }, this.$slots.default);
-    }
-  },
-  render: function render(h) {
-    return h('div', {
-      staticClass: 'v-responsive',
-      style: this.measurableStyles,
-      on: this.$listeners
-    }, [this.__cachedSizer, this.genContent()]);
-  }
-}));
-// CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VResponsive/index.js
-
-
-/* harmony default export */ var components_VResponsive = (VResponsive_VResponsive);
-// CONCATENATED MODULE: ./node_modules/vuetify/lib/mixins/themeable/index.js
-
-
-/* @vue/component */
-
-var Themeable = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend().extend({
-  name: 'themeable',
-  provide: function provide() {
-    return {
-      theme: this.themeableProvide
-    };
-  },
-  inject: {
-    theme: {
-      default: {
-        isDark: false
-      }
-    }
-  },
-  props: {
-    dark: {
-      type: Boolean,
-      default: null
-    },
-    light: {
-      type: Boolean,
-      default: null
-    }
-  },
-  data: function data() {
-    return {
-      themeableProvide: {
-        isDark: false
-      }
-    };
-  },
-  computed: {
-    appIsDark: function appIsDark() {
-      return this.$vuetify.theme.dark || false;
-    },
-    isDark: function isDark() {
-      if (this.dark === true) {
-        // explicitly dark
-        return true;
-      } else if (this.light === true) {
-        // explicitly light
-        return false;
-      } else {
-        // inherit from parent, or default false if there is none
-        return this.theme.isDark;
-      }
-    },
-    themeClasses: function themeClasses() {
-      return {
-        'theme--dark': this.isDark,
-        'theme--light': !this.isDark
-      };
-    },
-
-    /** Used by menus and dialogs, inherits from v-app instead of the parent */
-    rootIsDark: function rootIsDark() {
-      if (this.dark === true) {
-        // explicitly dark
-        return true;
-      } else if (this.light === true) {
-        // explicitly light
-        return false;
-      } else {
-        // inherit from v-app
-        return this.appIsDark;
-      }
-    },
-    rootThemeClasses: function rootThemeClasses() {
-      return {
-        'theme--dark': this.rootIsDark,
-        'theme--light': !this.rootIsDark
-      };
-    }
-  },
-  watch: {
-    isDark: {
-      handler: function handler(newVal, oldVal) {
-        if (newVal !== oldVal) {
-          this.themeableProvide.isDark = this.isDark;
-        }
-      },
-      immediate: true
-    }
-  }
-});
-/* harmony default export */ var themeable = (Themeable);
-function functionalThemeClasses(context) {
-  var vm = _objectSpread2(_objectSpread2({}, context.props), context.injections);
-
-  var isDark = Themeable.options.computed.isDark.call(vm);
-  return Themeable.options.computed.themeClasses.call({
-    isDark: isDark
-  });
-}
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.includes.js
 var es_string_includes = __webpack_require__("2532");
 
@@ -9430,6 +9093,9 @@ lang_Lang.property = 'lang';
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.assign.js
 var es_object_assign = __webpack_require__("cca6");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.find.js
+var es_array_find = __webpack_require__("7db0");
+
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.anchor.js
 var es_string_anchor = __webpack_require__("18a5");
 
@@ -10404,272 +10070,6 @@ function generateComponentTrace(vm) {
     return "\n\n(found in ".concat(formatComponentName(vm), ")");
   }
 }
-// CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VImg/VImg.js
-
-
-
-
-
-// Styles
- // Directives
-
- // Components
-
- // Mixins
-
- // Utils
-
-
-
-
-var hasIntersect = typeof window !== 'undefined' && 'IntersectionObserver' in window;
-/* @vue/component */
-
-/* harmony default export */ var VImg_VImg = (mixins(components_VResponsive, themeable).extend({
-  name: 'v-img',
-  directives: {
-    intersect: intersect
-  },
-  props: {
-    alt: String,
-    contain: Boolean,
-    eager: Boolean,
-    gradient: String,
-    lazySrc: String,
-    options: {
-      type: Object,
-      // For more information on types, navigate to:
-      // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
-      default: function _default() {
-        return {
-          root: undefined,
-          rootMargin: undefined,
-          threshold: undefined
-        };
-      }
-    },
-    position: {
-      type: String,
-      default: 'center center'
-    },
-    sizes: String,
-    src: {
-      type: [String, Object],
-      default: ''
-    },
-    srcset: String,
-    transition: {
-      type: [Boolean, String],
-      default: 'fade-transition'
-    }
-  },
-  data: function data() {
-    return {
-      currentSrc: '',
-      image: null,
-      isLoading: true,
-      calculatedAspectRatio: undefined,
-      naturalWidth: undefined,
-      hasError: false
-    };
-  },
-  computed: {
-    computedAspectRatio: function computedAspectRatio() {
-      return Number(this.normalisedSrc.aspect || this.calculatedAspectRatio);
-    },
-    normalisedSrc: function normalisedSrc() {
-      return this.src && _typeof(this.src) === 'object' ? {
-        src: this.src.src,
-        srcset: this.srcset || this.src.srcset,
-        lazySrc: this.lazySrc || this.src.lazySrc,
-        aspect: Number(this.aspectRatio || this.src.aspect)
-      } : {
-        src: this.src,
-        srcset: this.srcset,
-        lazySrc: this.lazySrc,
-        aspect: Number(this.aspectRatio || 0)
-      };
-    },
-    __cachedImage: function __cachedImage() {
-      if (!(this.normalisedSrc.src || this.normalisedSrc.lazySrc || this.gradient)) return [];
-      var backgroundImage = [];
-      var src = this.isLoading ? this.normalisedSrc.lazySrc : this.currentSrc;
-      if (this.gradient) backgroundImage.push("linear-gradient(".concat(this.gradient, ")"));
-      if (src) backgroundImage.push("url(\"".concat(src, "\")"));
-      var image = this.$createElement('div', {
-        staticClass: 'v-image__image',
-        class: {
-          'v-image__image--preload': this.isLoading,
-          'v-image__image--contain': this.contain,
-          'v-image__image--cover': !this.contain
-        },
-        style: {
-          backgroundImage: backgroundImage.join(', '),
-          backgroundPosition: this.position
-        },
-        key: +this.isLoading
-      });
-      /* istanbul ignore if */
-
-      if (!this.transition) return image;
-      return this.$createElement('transition', {
-        attrs: {
-          name: this.transition,
-          mode: 'in-out'
-        }
-      }, [image]);
-    }
-  },
-  watch: {
-    src: function src() {
-      // Force re-init when src changes
-      if (!this.isLoading) this.init(undefined, undefined, true);else this.loadImage();
-    },
-    '$vuetify.breakpoint.width': 'getSrc'
-  },
-  mounted: function mounted() {
-    this.init();
-  },
-  methods: {
-    init: function init(entries, observer, isIntersecting) {
-      // If the current browser supports the intersection
-      // observer api, the image is not observable, and
-      // the eager prop isn't being used, do not load
-      if (hasIntersect && !isIntersecting && !this.eager) return;
-
-      if (this.normalisedSrc.lazySrc) {
-        var lazyImg = new Image();
-        lazyImg.src = this.normalisedSrc.lazySrc;
-        this.pollForSize(lazyImg, null);
-      }
-      /* istanbul ignore else */
-
-
-      if (this.normalisedSrc.src) this.loadImage();
-    },
-    onLoad: function onLoad() {
-      this.getSrc();
-      this.isLoading = false;
-      this.$emit('load', this.src);
-
-      if (this.image && (this.normalisedSrc.src.endsWith('.svg') || this.normalisedSrc.src.startsWith('data:image/svg+xml'))) {
-        if (this.image.naturalHeight && this.image.naturalWidth) {
-          this.naturalWidth = this.image.naturalWidth;
-          this.calculatedAspectRatio = this.image.naturalWidth / this.image.naturalHeight;
-        } else {
-          this.calculatedAspectRatio = 1;
-        }
-      }
-    },
-    onError: function onError() {
-      this.hasError = true;
-      this.$emit('error', this.src);
-    },
-    getSrc: function getSrc() {
-      /* istanbul ignore else */
-      if (this.image) this.currentSrc = this.image.currentSrc || this.image.src;
-    },
-    loadImage: function loadImage() {
-      var _this = this;
-
-      var image = new Image();
-      this.image = image;
-
-      image.onload = function () {
-        /* istanbul ignore if */
-        if (image.decode) {
-          image.decode().catch(function (err) {
-            consoleWarn("Failed to decode image, trying to render anyway\n\n" + "src: ".concat(_this.normalisedSrc.src) + (err.message ? "\nOriginal error: ".concat(err.message) : ''), _this);
-          }).then(_this.onLoad);
-        } else {
-          _this.onLoad();
-        }
-      };
-
-      image.onerror = this.onError;
-      this.hasError = false;
-      image.src = this.normalisedSrc.src;
-      this.sizes && (image.sizes = this.sizes);
-      this.normalisedSrc.srcset && (image.srcset = this.normalisedSrc.srcset);
-      this.aspectRatio || this.pollForSize(image);
-      this.getSrc();
-    },
-    pollForSize: function pollForSize(img) {
-      var _this2 = this;
-
-      var timeout = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
-
-      var poll = function poll() {
-        var naturalHeight = img.naturalHeight,
-            naturalWidth = img.naturalWidth;
-
-        if (naturalHeight || naturalWidth) {
-          _this2.naturalWidth = naturalWidth;
-          _this2.calculatedAspectRatio = naturalWidth / naturalHeight;
-        } else if (!img.complete && _this2.isLoading && !_this2.hasError && timeout != null) {
-          setTimeout(poll, timeout);
-        }
-      };
-
-      poll();
-    },
-    genContent: function genContent() {
-      var content = components_VResponsive.options.methods.genContent.call(this);
-
-      if (this.naturalWidth) {
-        this._b(content.data, 'div', {
-          style: {
-            width: "".concat(this.naturalWidth, "px")
-          }
-        });
-      }
-
-      return content;
-    },
-    __genPlaceholder: function __genPlaceholder() {
-      if (this.$slots.placeholder) {
-        var placeholder = this.isLoading ? [this.$createElement('div', {
-          staticClass: 'v-image__placeholder'
-        }, this.$slots.placeholder)] : [];
-        if (!this.transition) return placeholder[0];
-        return this.$createElement('transition', {
-          props: {
-            appear: true,
-            name: this.transition
-          }
-        }, placeholder);
-      }
-    }
-  },
-  render: function render(h) {
-    var node = components_VResponsive.options.render.call(this, h);
-    var data = mergeData(node.data, {
-      staticClass: 'v-image',
-      attrs: {
-        'aria-label': this.alt,
-        role: this.alt ? 'img' : undefined
-      },
-      class: this.themeClasses,
-      // Only load intersect directive if it
-      // will work in the current browser.
-      directives: hasIntersect ? [{
-        name: 'intersect',
-        modifiers: {
-          once: true
-        },
-        value: {
-          handler: this.init,
-          options: this.options
-        }
-      }] : undefined
-    });
-    node.children = [this.__cachedSizer, this.__cachedImage, this.__genPlaceholder(), this.genContent()];
-    return h(node.tag, data, node.children);
-  }
-}));
-// EXTERNAL MODULE: ./node_modules/vuetify/src/components/VProgressCircular/VProgressCircular.sass
-var VProgressCircular = __webpack_require__("8d4f");
-
 // CONCATENATED MODULE: ./node_modules/vuetify/lib/mixins/colorable/index.js
 
 
@@ -11064,7 +10464,7 @@ var VRow_cache = new Map();
 
 var HelloWorld_component = normalizeComponent(
   components_HelloWorldvue_type_script_lang_js_,
-  HelloWorldvue_type_template_id_354da181_render,
+  HelloWorldvue_type_template_id_3169d4e0_render,
   staticRenderFns,
   false,
   null,
@@ -11081,8 +10481,7 @@ var HelloWorld_component = normalizeComponent(
 
 
 
-
-installComponents_default()(HelloWorld_component, {VCol: VCol,VContainer: VContainer,VImg: VImg_VImg,VProgressCircular: VProgressCircular_VProgressCircular,VRow: VRow})
+installComponents_default()(HelloWorld_component, {VCol: VCol,VContainer: VContainer,VProgressCircular: VProgressCircular_VProgressCircular,VRow: VRow})
 
 
 /***/ }),
