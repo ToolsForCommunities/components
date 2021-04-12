@@ -56,6 +56,25 @@ Vue.use(components, {
 
 Now, you can use any library component in your app.
 
+## Nuxt
+
+If you're installing this components in nuxt, first install vuetify as usual (explaied in )
+
+Now, create a plugin. To do so, create a file called `components.js` in `plugins` folder, with the following content:
+
+```javascript
+import Vue from 'vue'
+import components from '../../components/'
+
+export default ({ app }, inject) => {
+  Vue.use(components, {
+    vuetify: app.vuetify
+  })
+}
+```
+
+Remember to add the plugin to `plugins` section in the `nuxt.config.js` file.
+
 # Documentation
 
 As we use Storybook, it is our main documentation source. 
