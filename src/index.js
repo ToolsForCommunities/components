@@ -1,18 +1,4 @@
-// import Vue from "vue";
-// import vuetify from './plugins/vuetify';
-
-import HelloWorld from "./components/HelloWorld.vue";
-
-
-// const Components = {
-//   HelloWorld,
-// };
-
-// Object.keys(Components).forEach(name => {
-//   Vue.component(name, Components[name]);
-// });
-
-// export default Components;
+import components from "./components";
 
 const ComponentLibrary = {
   install(Vue, { vuetify }) {
@@ -23,9 +9,13 @@ const ComponentLibrary = {
     // Install vuetify...
     Vue.use(vuetify);
 
-    // Install the plugin
+
+    // Install the components
     console.log('YEY! I am installling a pluginnn!!');
-    Vue.component('HelloWorld', HelloWorld);
+    Object.keys(components).forEach(name => {
+      Vue.component(name, components[name]);
+    });
+    // Vue.component('HelloWorld', HelloWorld);
   },
 };
 
