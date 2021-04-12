@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "build:lib": "vue-cli-service build --target lib --name ctlib ./src/index.js",
     "lint": "vue-cli-service lint",
-    "build:storybook": "build-storybook",
+    "build:storybook": "build-storybook -o ./docs",
     "serve:storybook": "start-storybook -p 6006"
   },
   "dependencies": {
