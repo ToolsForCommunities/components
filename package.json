@@ -1,14 +1,14 @@
 {
   "name": "components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve:storybook": "start-storybook -p 6006",
+    "build": "npm run build:lib; npm run build:storybook",
     "build:lib": "vue-cli-service build --target lib --name ctlib ./src/index.js",
-    "lint": "vue-cli-service lint",
     "build:storybook": "build-storybook -o ./docs",
-    "serve:storybook": "start-storybook -p 6006"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
