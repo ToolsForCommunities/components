@@ -1,29 +1,25 @@
-// A helper function to faciliate the generation of stories
-import { storyFactory } from '../util/helpers'
+import { componentStory } from '../util/helpers'
 
-// Components
-import HelloWorld from '../../src/components/HelloWorld.vue'
+// Import the component here bellow
+import vueComponent from '../../src/components/HelloWorld.vue'
 
-// Generate a factory function
-// Will automatically bootstrap the story components
-const story = storyFactory({
-  // Can pass in an import function
-  // MyComponent: () => import('path/to/component'),
-  // Or explicitly import and use
-  HelloWorld,
-})
+const { component, asDefault, story } = componentStory(vueComponent);
 
-export default { title: 'HelloWorld' }
+export default component
+export { asDefault }
 
-export const asDefault = () => story({
+/* 
+// To create custom stories for the component, use this template:
+
+export const asStatic = () => story({
+  // Import also creteKnobs from helpers to create automatic binding
+  // props: createKnobs(vueComponent),	
   props: {},
-  template: `<HelloWorld></HelloWorld>`,
+  template: `
+  <HelloWorld
+  	msg="Static content"
+  >
+  	Oh, this is so easy!
+  </HelloWorld>`
 })
-
-// export const withAnotherComponent = () => story({
-//   template: `
-//     <my-component>
-//       <HelloWorld></HelloWorld>
-//     </my-component>
-//   `,
-// })
+*/
