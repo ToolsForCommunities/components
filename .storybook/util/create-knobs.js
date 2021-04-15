@@ -30,20 +30,12 @@ function createKnobs(component, knobs) {
   vueProps.forEach(name => {
     const type = component.props[name].type.name;
     const defaultValue = component.props[name].default;
-    
-    console.log('---')
-    console.log(name)
-    console.log(type)
-    console.log(typeKnobs[type])
-    console.log(defaultValue)
-    console.log('---')
 
     props[name] = {
       default: typeKnobs[type](name, defaultValue)
     }
   })
   
-  console.log(props);
   return props;
 }
 

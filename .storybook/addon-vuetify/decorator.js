@@ -21,10 +21,6 @@ export default makeDecorator({
     const searchParams = new URL(window.location).searchParams
     const dark = searchParams.get('eyes-variation') === 'dark'
     const rtl = searchParams.get('eyes-variation') === 'rtl'
-    // const vuetify = new Vuetify(deepmerge({
-    //   rtl,
-    //   theme: { dark },
-    // }, parameters))
     const WrappedComponent = storyFn(context)
 
     return Vue.extend({
@@ -32,9 +28,7 @@ export default makeDecorator({
       components: { WrappedComponent },
       template: `
         <v-app>
-          <v-container fluid>
-            <wrapped-component />
-          </v-container>
+          <wrapped-component />
         </v-app>
       `,
     })
