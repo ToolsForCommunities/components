@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div class="d-flex">
     <v-navigation-drawer
       v-if="!hideSidebar"
       :app="app"
       :mini-variant="miniSidebar && isMobile"
-      mini-variant-width="118"
+      mini-variant-width="124"
       :permanent="miniSidebar"
-      fixed
       clipped
       width="300"
     >
@@ -17,16 +16,18 @@
       <slot name="content" />
     </v-main>
 
-    <v-navigation-drawer
-      v-if="!hideAside"
-      :app="app"
-      clipped
-      permanent
-      right
-      width="397"
-    >
-      <slot name="aside"></slot>
-    </v-navigation-drawer>
+    <transition name="slide">
+      <v-navigation-drawer
+        v-if="!hideAside"
+        :app="app"
+        permanent
+        clipped
+        right
+        width="380"
+      >
+        <slot name="aside"></slot>
+      </v-navigation-drawer>
+    </transition>
   </div>
 </template>
 
@@ -77,6 +78,14 @@
       width: 100% !important;
       transform: translateY(0px) !important;
     }
+
+    .slide-enter, .slide-leave-to {
+      transform: translateY(100vh) !important;
+    }
+
+    .slide-enter-to, .slide-leave {
+      transform: translateY(0);
+    }
   }
 </style>
 
@@ -85,7 +94,7 @@ export default {
   name: 'LayoutTriplet',
   data: () => ({
     sidebar: true,
-    windowWidth: window.innerWidth,
+    windowWidth: 0,
   }),
   props: {
     app: {
@@ -104,14 +113,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    sidebarFloating: {
-      type: Boolean,
-      default: false,
-    },
-    asideFloating: {
-      type: Boolean,
-      default: false,
-    },
   },
   computed: {
     isMobile() {
@@ -119,9 +120,12 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('resize', () => {
+    if (typeof window !== "undefined") {
       this.windowWidth = window.innerWidth;
-    });
+      window.addEventListener('resize', () => {
+        this.windowWidth = window.innerWidth;
+      });
+    }
   },
 };
 </script>

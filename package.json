@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "serve:storybook": "start-storybook -p 6006",
+    "serve:storybook": "BROWSER=none start-storybook -p 6006",
     "build": "npm run build:lib; npm run build:storybook",
     "build:lib": "vue-cli-service build --target lib --name ctlib ./src/index.js",
     "build:storybook": "build-storybook -o ./docs",

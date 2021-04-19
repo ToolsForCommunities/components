@@ -1,8 +1,9 @@
 import { boolean } from '@storybook/addon-knobs'
-import { componentStory, createKnobs } from '../util/helpers'
+import { storyFactory, componentStory, createKnobs } from '../util/helpers'
 
-import LayoutTriplet from '../../src/components/layout/LayoutTriplet.vue'
-// import LayoutTriplet from '../../src/components/layout/LayoutTriplet.vue'
+// import LayoutTriplet from '@/src/components/layout/Triplet.vue'
+import LayoutTriplet from '../../src/components/layout/Triplet.vue'
+import LayoutMain from '../../src/components/layout/Main.vue'
 
 export default {
   title: 'Layouts',
@@ -11,7 +12,10 @@ export default {
   },
 }
 
-const { story } = componentStory(LayoutTriplet);
+// const { story } = componentStory(LayoutTriplet);
+// const { story } = componentStory({ LayoutTriplet, LayoutMain });
+// const { story } = storyFactory({ LayoutTriplet, LayoutMain });
+const story = storyFactory({ LayoutTriplet, LayoutMain });
 
 export const layoutTriplet = () => story({
   // Import also creteKnobs from helpers to create automatic binding
@@ -50,11 +54,38 @@ export const layoutTripletMain = () => story({
   }, 
   layout: 'fullscreen',
   template: `
-  <LayoutTriplet
-    app
-    mini-sidebar
-    :hide-aside="hideAside"
-  >
+  <v-container>
+    <LayoutTriplet
+      app
+      mini-sidebar
+      :hide-aside="hideAside"
+    >
+      <div slot="sidebar">
+        I'm the sidebar
+      </div>
+
+      <div slot="content" class="px-6 py-4">
+        <p>I'm the main content</p>
+        <p v-for="i in 30" :key="i">.</p>
+        <p>And so the scroll works</p>
+      </div>
+
+      <div slot="aside">
+        I'm lateral content
+      </div>
+    </LayoutTriplet>
+  </v-container>`
+})
+
+export const layoutMain = () => story({
+  props: {
+    hideAside: {
+       default: boolean('hideAside', false)
+    }
+  }, 
+  layout: 'fullscreen',
+  template: `
+  <LayoutMain :hide-aside="hideAside">
     <div slot="sidebar">
       I'm the sidebar
     </div>
@@ -68,6 +99,6 @@ export const layoutTripletMain = () => story({
     <div slot="aside">
       I'm lateral content
     </div>
-  </LayoutTriplet>`
+  </LayoutMain>`
 })
 

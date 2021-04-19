@@ -1,8 +1,8 @@
-// Globally register all base components for convenience, because they
-// will be used very frequently. Components are registered using the
-// PascalCased version of their file name.
-
-// import Vue from 'vue';
+// Globally export all components. Components are registered using the
+// PascalCased version of their folder and file name.
+// i.e.
+// components/MainButton      -> <MainButton />
+// components/layout/Default  -> <LayoutDefault />
 
 // https://webpack.js.org/guides/dependency-management/#require-context
 const requireComponent = require.context(
@@ -25,18 +25,15 @@ requireComponent.keys().forEach((fileName) => {
     // Remove the "./" from the beginning
     .replace(/^\.\//, '')
     // Remove the file extension from the end
-    .replace(/\.\w+$/, '');
-    // Split up kebabs
-    // .split('-')
+    .replace(/\.\w+$/, '')
+    // Split up slashes
+    .split('/')
     // Upper case
-    // .map((kebab) => kebab.charAt(0).toUpperCase() + kebab.slice(1))
+    .map((slash) => slash.charAt(0).toUpperCase() + slash.slice(1))
     // Concatenated
-    // .join('');
+    .join('');
 
     components[componentName] = componentConfig.default || componentConfig;
-
-  // Globally register the component
-  // Vue.component(componentName, componentConfig.default || componentConfig);
 });
 
 export default components;
