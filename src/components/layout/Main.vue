@@ -1,6 +1,5 @@
 <template>
-  <v-container class="main-container" :fluid="isSmall">
-      <!-- app -->
+  <v-container class="main-container">
     <LayoutTriplet
       mini-sidebar
       :hide-aside="hideAside"
@@ -10,7 +9,6 @@
       </div>
 
       <div slot="content">
-        {{ windowWidth }} - {{ isSmall }}
         <slot name="content" />
       </div>
 
@@ -27,17 +25,20 @@
     padding: 0;
   }
 
+  /* Small and XS */
+  @media screen and (max-width: 960px)  {
+    .container.main-container {
+      max-width: 100%;
+    }
+    
+  }
+
   /* Medium and bigger */
   @media screen and (min-width: 960px)  {
     >>> .v-navigation-drawer {
       height: 100vh !important;
       position: sticky;
     }
-
-    /*.container.main-container {
-      max-width: 960px;
-    }
-    */
   }
 
   /* Large and bigger */
@@ -46,13 +47,6 @@
       max-width: 1296px;
     }
   }
-
-/* Default container width values:
-  1785px
-  1185px
-  900px
-*/
-
 </style>
 
 <script>
@@ -63,28 +57,11 @@ export default {
   components: {
     LayoutTriplet,
   },
-  data: () => ({
-    sidebar: true,
-    windowWidth: 0,
-  }),
   props: {
     hideAside: {
       type: Boolean,
       default: false,
     },
-  },
-  computed: {
-    isSmall() {
-      return this.windowWidth <= 960;
-    },
-  },
-  mounted() {
-    if (typeof window !== "undefined") {
-      this.windowWidth = window.innerWidth;
-      window.addEventListener('resize', () => {
-        this.windowWidth = window.innerWidth;
-      });
-    }
   },
 };
 </script>
