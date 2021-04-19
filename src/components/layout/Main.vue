@@ -1,5 +1,5 @@
 <template>
-  <v-container class="main-container pink lighten-4" :fluid="isSmall">
+  <v-container class="main-container" :fluid="isSmall">
       <!-- app -->
     <LayoutTriplet
       mini-sidebar
