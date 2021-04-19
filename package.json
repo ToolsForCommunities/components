@@ -8,7 +8,10 @@
     "build": "npm run build:lib; npm run build:storybook",
     "build:lib": "vue-cli-service build --target lib --name ctlib ./src/index.js",
     "build:storybook": "build-storybook -o ./docs",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "preversion": "npm run lint",
+    "version": "npm run build && git add .",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "core-js": "^3.6.5",
