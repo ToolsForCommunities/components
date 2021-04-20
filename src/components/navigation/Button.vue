@@ -7,9 +7,10 @@
     :class="{
       'primary lighten-5 primary--text': active,
       'grey--text text--darken-2': !active,
-      'rounded-pill justify-start':  isLarge,
-      'rounded flex-column justify-center py-10':  isSmall,
+      'large-button rounded-pill justify-start':  isLarge,
+      'small-button rounded flex-column justify-center px-0 py-10':  isSmall,
     }"
+    v-resize="onResize"
   >
     <v-icon
       v-if="icon"
@@ -32,47 +33,58 @@
   text-transform: none;
 }
 
-.flex-column >>> .v-btn__content {
+.small-button >>> .v-btn__content {
   flex-direction: column;
 }
 </style>
 
 <script>
-// import LayoutTriplet from '@/components/layout/Triplet.vue';
-
 export default {
   name: 'NavigationButton',
-  // components: {
-  //   LayoutTriplet,
-  // },
   props: {
     size: {
       type: String,
-      default: () => 'large',
-      validator: (value) => (['large', 'small', 'tab'].indexOf(value) !== -1),
+      default: '',
+      validator: (value) => (['large', 'small', 'tab', ''].indexOf(value) !== -1),
     },
     icon: {
       type: String,
-      default: () => '',
+      default: '',
     },
     active: {
       type: Boolean,
       default: false,
     },
   },
+  data: () => ({
+    windowWidth: 0,
+  }),
   computed: {
     isLarge() {
-      // return this.size === 'large' || MAS ANCHO QUE 1264px;
-      return this.size === 'large';
+      const thresholds = this.$vuetify.breakpoint.thresholds;
+      return this.size === 'large' || this.windowWidth > thresholds.md;
     },
     isSmall() {
-      // return this.size === 'large' || ENTRE 960 y 1264px;
-      return this.size === 'small';
+      const thresholds = this.$vuetify.breakpoint.thresholds;
+      const isMd = this.windowWidth > thresholds.sm && this.windowWidth < thresholds.md;
+      return this.size === 'small' || isMd;
+    },
+    isTab() {
+      return this.size === 'tab' || this.$vuetify.breakpoint.smAndDown;
     },
     iconState() {
-      // return this.icon;
       return this.active ? this.icon : `${this.icon}-outline`
     },
+  },
+  methods: {
+    onResize() {
+      if (typeof window !== "undefined") {
+        this.windowWidth = window.innerWidth;
+      }
+    },
+  },
+  created() {
+    this.onResize();
   },
 };
 </script>
