@@ -94,7 +94,8 @@ export default {
   name: 'LayoutTriplet',
   data: () => ({
     sidebar: true,
-    windowWidth: 0,
+    windowWidth: 961,
+    // windowWidth: 0,
   }),
   props: {
     app: {

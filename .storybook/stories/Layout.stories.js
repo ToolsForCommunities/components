@@ -4,6 +4,7 @@ import { storyFactory, componentStory, createKnobs } from '../util/helpers'
 // import LayoutTriplet from '@/src/components/layout/Triplet.vue'
 import LayoutTriplet from '../../src/components/layout/Triplet.vue'
 import LayoutMain from '../../src/components/layout/Main.vue'
+import HelloWorld from '../../src/components/HelloWorld.vue'
 
 export default {
   title: 'Layouts',
@@ -15,7 +16,7 @@ export default {
 // const { story } = componentStory(LayoutTriplet);
 // const { story } = componentStory({ LayoutTriplet, LayoutMain });
 // const { story } = storyFactory({ LayoutTriplet, LayoutMain });
-const story = storyFactory({ LayoutTriplet, LayoutMain });
+const story = storyFactory({ LayoutTriplet, LayoutMain, HelloWorld });
 
 export const layoutTriplet = () => story({
   // Import also creteKnobs from helpers to create automatic binding
@@ -92,6 +93,7 @@ export const layoutMain = () => story({
 
     <div slot="content" class="px-6 py-4">
       <p>I'm the main content</p>
+      <HelloWorld />
       <p v-for="i in 30" :key="i">.</p>
       <p>And so the scroll works</p>
     </div>

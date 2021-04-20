@@ -25,6 +25,10 @@
     padding: 0;
   }
 
+  >>> .v-main {
+    padding: 0 !important;
+  }
+
   /* Small and XS */
   @media screen and (max-width: 960px)  {
     .container.main-container {
@@ -39,10 +43,18 @@
       height: 100vh !important;
       position: sticky;
     }
+
+    >>> .v-main {
+      max-width: calc(100% - 380px - 124px);
+    }
   }
 
   /* Large and bigger */
   @media screen and (min-width: 1260px)  {
+    >>> .v-main {
+      max-width: calc(100% - 380px - 300px) !important;
+    }
+
     .container.main-container {
       max-width: 1296px;
     }
