@@ -1,5 +1,5 @@
 // Utilities
-import { storyFactory } from '../util/helpers'
+import { storyFactory } from './util/helpers'
 import { text, boolean } from '@storybook/addon-knobs'
 
 export default { title: 'BaseCard' }

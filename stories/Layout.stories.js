@@ -1,10 +1,10 @@
 import { boolean } from '@storybook/addon-knobs'
-import { storyFactory, componentStory, createKnobs } from '../util/helpers'
+import { storyFactory, componentStory, createKnobs } from './util/helpers'
 
-// import LayoutTriplet from '@/src/components/layout/Triplet.vue'
-import LayoutTriplet from '../../src/components/layout/Triplet.vue'
-import LayoutMain from '../../src/components/layout/Main.vue'
-import HelloWorld from '../../src/components/HelloWorld.vue'
+// import LayoutTriplet from '../../src/components/layout/Triplet.vue'
+import LayoutTriplet from '@/components/layout/Triplet.vue'
+import LayoutMain from '@/components/layout/Main.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   title: 'Layouts',

@@ -1,7 +1,7 @@
-import { componentStory } from '../util/helpers'
+import { componentStory } from './util/helpers'
 
 // Import the component here bellow
-import vueComponent from '../../src/components/HelloWorld.vue'
+import vueComponent from '@/components/HelloWorld.vue'
 
 const { component, asDefault, story } = componentStory(vueComponent);
 

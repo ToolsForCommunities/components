@@ -1,8 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  // stories: ['../src/**/*.stories.js'],
-  stories: ['./stories/**/*.stories.js'],
+  // stories: ['./stories/**/*.stories.js'],
+  stories: ['../stories/**/*.stories.js'],
   addons: ['@storybook/addon-a11y'],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
