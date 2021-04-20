@@ -16,12 +16,16 @@ export const navigationButton = () => story({
     },
     size: {
        default: select('size', ['large', 'small', 'tab'])
+    },
+    icon: {
+       default: select('icon', ['mdi-home', 'mdi-face', 'mdi-more'])
     }
   }, 
   template: `
   <NavigationButton
     :size="size"
     :active="active"
+    :icon="icon"
   >
     Hey, dude
   </NavigationButton>`

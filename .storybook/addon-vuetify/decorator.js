@@ -10,6 +10,7 @@ import deepmerge from 'deepmerge'
 // Vuetify
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.min.css'
+// import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 Vue.use(Vuetify)
 

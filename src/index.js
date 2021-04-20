@@ -1,6 +1,9 @@
 import Vuetify from 'vuetify/lib';
 
+// import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
 import components from "./components";
+
 
 const ComponentLibrary = {
   install(Vue, settings) {

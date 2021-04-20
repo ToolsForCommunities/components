@@ -1,6 +1,7 @@
 <template>
   <v-btn
     x-large
+    block
     text
     class="font-weight-bold"
     :class="{
@@ -14,9 +15,10 @@
       v-if="icon"
       left
       size="24"
-      class="ml-1 mr-4"
       :class="{
-        'mb-1': isSmall,
+        'ml-1 mr-4': isLarge,
+        'mb-1 mx-0': isSmall,
+        'material-icons-outlined': !active,
       }"
     >
       {{ iconState }}
@@ -51,7 +53,7 @@ export default {
     },
     icon: {
       type: String,
-      default: () => 'mdi-home',
+      default: () => '',
     },
     active: {
       type: Boolean,
@@ -68,6 +70,7 @@ export default {
       return this.size === 'small';
     },
     iconState() {
+      // return this.icon;
       return this.active ? this.icon : `${this.icon}-outline`
     },
   },
