@@ -29,7 +29,9 @@ export default makeDecorator({
       components: { WrappedComponent },
       template: `
         <v-app>
-          <wrapped-component />
+          <div>
+            <wrapped-component />
+          </div>
         </v-app>
       `,
     })
