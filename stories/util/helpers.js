@@ -20,23 +20,25 @@ export const storyFactory = (components) => {
 /**
  *  Create a component template with its props
  *  @param component {VueComponent} 
+ *  @param content {String} The component slot/content, as a string
  *  @return {String} The component template as a string
  */
-export const createTemplate = (component) => {
+export const createTemplate = (component, content = '') => {
   let props = '';
   Object.keys(component.props).forEach(name => {
     props += ` :${name}="${name}"`
   })
 
-  return `<${component.name}${props}></${component.name}>`
+  return `<${component.name}${props}>${content}</${component.name}>`
 }
 
 /**
  *  Create a default story given a component
  *  @param component {VueComponent} 
+ *  @param content {String} The component slot/content, as a string
  *  @return {Object} The component story and 
  */
-export const componentStory = (component) => {
+export const componentStory = (component, content) => {
   const componentObject = {};
   componentObject[component.name] = component;
 
@@ -47,7 +49,7 @@ export const componentStory = (component) => {
     component: { title: component.name },
     asDefault: () => story({
       props: createKnobs(component),
-      template: createTemplate(component),
+      template: createTemplate(component, content),
     })
   }
 }

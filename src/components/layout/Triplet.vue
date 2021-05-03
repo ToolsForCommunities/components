@@ -58,7 +58,7 @@
       bottom: 0px;
       left: 0px;
       width: 100% !important;
-      height: 72px !important;
+      height: 52px !important;
       top: auto !important;
     }
 
