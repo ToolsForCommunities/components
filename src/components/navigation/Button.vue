@@ -1,14 +1,16 @@
 <template>
   <v-btn
     x-large
-    block
+    :block="!isTab"
     text
     class="font-weight-bold"
     :class="{
-      'primary lighten-5 primary--text': active,
+      'primary--text': active,
+      'primary lighten-5 primary--text': active && !isTab,
       'grey--text text--darken-2': !active,
       'large-button rounded-pill justify-start':  isLarge,
       'small-button rounded flex-column justify-center px-0 py-10':  isSmall,
+      'small-button flex-column justify-center px-0 py-0':  isTab,
     }"
     v-resize="onResize"
   >
@@ -18,7 +20,7 @@
       size="24"
       :class="{
         'ml-1 mr-4': isLarge,
-        'mb-1 mx-0': isSmall,
+        'mb-1 mx-0': isSmall || isTab,
         'material-icons-outlined': !active,
       }"
     >
