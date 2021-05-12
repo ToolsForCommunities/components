@@ -91,7 +91,7 @@
 
 <script>
 export default {
-  name: 'LayoutTriplet',
+  name: 'CTLayoutTriplet',
   data: () => ({
     sidebar: true,
     windowWidth: 961,

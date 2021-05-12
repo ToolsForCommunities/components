@@ -2,15 +2,15 @@ import { select, boolean } from '@storybook/addon-knobs'
 import { storyFactory, createKnobs, createTemplate } from './util/helpers'
 
 // Import the component here bellow
-import NavigationButton from '@/components/navigation/Button.vue'
+import CTNavigationButton from '@/components/CTNavigation/Button.vue'
 
-const story = storyFactory({ NavigationButton });
+const story = storyFactory({ CTNavigationButton });
 
-export default { title: 'Navigation' }
+export default { title: 'CTNavigation' }
 
 export const navigationButton = () => story({
   props: {
-    // ...createKnobs(NavigationButton),
+    // ...createKnobs(CTNavigationButton),
     active: {
        default: boolean('active', false)
     },
@@ -23,12 +23,12 @@ export const navigationButton = () => story({
   }, 
   template: `
   <v-row>
-    <NavigationButton
+    <CTNavigationButton
       :size="size"
       :active="active"
       :icon="icon"
     >
       Hey, dude
-    </NavigationButton>
+    </CTNavigationButton>
   </v-row>`
 })

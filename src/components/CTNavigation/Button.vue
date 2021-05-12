@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'NavigationButton',
+  name: 'CTNavigationButton',
   props: {
     size: {
       type: String,

@@ -1,6 +1,6 @@
 <template>
   <v-container class="main-container">
-    <LayoutTriplet
+    <CTLayoutTriplet
       mini-sidebar
       :hide-aside="hideAside"
     >
@@ -15,7 +15,7 @@
       <div slot="aside">
         <slot name="aside" />
       </div>
-    </LayoutTriplet>
+    </CTLayoutTriplet>
   </v-container>
 </template>
 
@@ -62,12 +62,12 @@
 </style>
 
 <script>
-import LayoutTriplet from '@/components/layout/Triplet.vue';
+import CTLayoutTriplet from '@/components/CTLayout/Triplet.vue';
 
 export default {
-  name: 'LayoutMain',
+  name: 'CTLayoutMain',
   components: {
-    LayoutTriplet,
+    CTLayoutTriplet,
   },
   props: {
     hideAside: {

@@ -1,30 +1,28 @@
 import { boolean } from '@storybook/addon-knobs'
 import { storyFactory, componentStory, createKnobs } from './util/helpers'
 
-import LayoutTriplet from '@/components/layout/Triplet.vue'
-import LayoutMain from '@/components/layout/Main.vue'
+import CTLayoutTriplet from '@/components/CTLayout/Triplet.vue'
+import CTLayoutMain from '@/components/CTLayout/Main.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  title: 'Layouts',
+  title: 'CTLayouts',
   parameters: {
     layout:'fullscreen',
   },
 }
 
-const story = storyFactory({ LayoutTriplet, LayoutMain, HelloWorld });
+const story = storyFactory({ CTLayoutTriplet, CTLayoutMain, HelloWorld });
 
 export const layoutTriplet = () => story({
   // Import also creteKnobs from helpers to create automatic binding
-  props: createKnobs(LayoutTriplet), 
+  props: createKnobs(CTLayoutTriplet), 
   layout: 'fullscreen',
   template: `
-  <LayoutTriplet
+  <CTLayoutTriplet
     :app="app"
     :hide-sidebar="hideSidebar"
-    :sidebar-floating="sidebarFloating"
     :hide-aside="hideAside"
-    :aside-floating="asideFloating"
     mini-sidebar
   >
     <div slot="sidebar">
@@ -40,7 +38,7 @@ export const layoutTriplet = () => story({
     <div slot="aside">
       I'm lateral content
     </div>
-  </LayoutTriplet>`
+  </CTLayoutTriplet>`
 })
 
 export const layoutTripletMain = () => story({
@@ -52,7 +50,7 @@ export const layoutTripletMain = () => story({
   layout: 'fullscreen',
   template: `
   <v-container>
-    <LayoutTriplet
+    <CTLayoutTriplet
       app
       mini-sidebar
       :hide-aside="hideAside"
@@ -70,7 +68,7 @@ export const layoutTripletMain = () => story({
       <div slot="aside">
         I'm lateral content
       </div>
-    </LayoutTriplet>
+    </CTLayoutTriplet>
   </v-container>`
 })
 
@@ -82,7 +80,7 @@ export const layoutMain = () => story({
   }, 
   layout: 'fullscreen',
   template: `
-  <LayoutMain :hide-aside="hideAside">
+  <CTLayoutMain :hide-aside="hideAside">
     <div slot="sidebar">
       I'm the sidebar
     </div>
@@ -97,6 +95,6 @@ export const layoutMain = () => story({
     <div slot="aside">
       I'm lateral content
     </div>
-  </LayoutMain>`
+  </CTLayoutMain>`
 })
 
