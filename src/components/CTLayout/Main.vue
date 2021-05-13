@@ -39,24 +39,28 @@
 
   /* Medium and bigger */
   @media screen and (min-width: 960px)  {
+    .container.main-container {
+      max-width: 960px;
+    }
+
     >>> .v-navigation-drawer {
       height: 100vh !important;
       position: sticky;
     }
 
     >>> .v-main {
-      max-width: calc(100% - 380px - 124px);
+      max-width: calc(100% - 360px - 88px);
     }
   }
 
   /* Large and bigger */
   @media screen and (min-width: 1260px)  {
     >>> .v-main {
-      max-width: calc(100% - 380px - 300px) !important;
+      max-width: calc(100% - 375px - 289px) !important;
     }
 
     .container.main-container {
-      max-width: 1296px;
+      max-width: 1264px;
     }
   }
 </style>

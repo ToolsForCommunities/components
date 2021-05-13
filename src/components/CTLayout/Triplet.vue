@@ -4,10 +4,10 @@
       v-if="!hideSidebar"
       :app="app"
       :mini-variant="miniSidebar && isMobile"
-      mini-variant-width="124"
+      mini-variant-width="88"
       :permanent="miniSidebar"
       clipped
-      width="300"
+      width="289"
     >
       <slot name="sidebar"></slot>
     </v-navigation-drawer>
@@ -20,10 +20,12 @@
       <v-navigation-drawer
         v-if="!hideAside"
         :app="app"
+        :mini-variant="miniSidebar && isMobile"
+        mini-variant-width="360"
         permanent
         clipped
         right
-        width="380"
+        width="375"
       >
         <slot name="aside"></slot>
       </v-navigation-drawer>
