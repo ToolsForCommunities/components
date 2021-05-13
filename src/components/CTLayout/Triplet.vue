@@ -8,6 +8,7 @@
       :permanent="miniSidebar"
       clipped
       width="289"
+      class="sidebar"
     >
       <slot name="sidebar"></slot>
     </v-navigation-drawer>
@@ -55,7 +56,7 @@
       padding-left: 0 !important;
     }
 
-    >>> .v-navigation-drawer--mini-variant {
+    >>> .sidebar.v-navigation-drawer--mini-variant {
       position: fixed;
       bottom: 0px;
       left: 0px;
