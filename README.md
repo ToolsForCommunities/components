@@ -33,6 +33,29 @@ npm run build:storybook
 npm run lint
 ```
 
+## Versioning
+When a few changes are made, and you want to make it available to library users, the main action you have to perform is publish a new version.
+
+To do this, we use the `npm version` command.
+
+It's important to follow Semantic Versioning principles. So, if your changes are just minor changes in the components, that don't affect to the way there are used, just execute:
+```
+npm version patch
+```
+
+If you have added something new (a component, new properties...) it's considered a minor change, so just execute:
+```
+npm version minor
+```
+
+And, if the changes are breaking stuff, or it will force to break any older version (this shouldn't happen that often...):
+```
+npm version major
+```
+
+All of this commands will create the tag in the code, the repository, a commit with the version changes, and push everything to github.
+
+
 # User guide
 
 If you are going to use this library, this is the point you're looking for. For now, it's not uploaded to NPM, so you have to download it as a local dependency. I know, it's not fancy. But no worry, it's not difficult.
