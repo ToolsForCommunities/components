@@ -12,6 +12,9 @@ import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.min.css'
 // import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
+import '../../src/styles/variables.scss'
+// import '../../src/styles/styles.css'
+
 Vue.use(Vuetify)
 
 export default makeDecorator({
