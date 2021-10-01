@@ -6,6 +6,7 @@
     :text="text"
     :outlined="!(contained || text)"
     :color="color || 'primary'"
+    @click="click"
   >
     <v-icon
       v-if="icon"
@@ -56,6 +57,11 @@
         type: String,
         default: '',
       },
+    },
+    methods: {
+      click(evt) {
+        this.$emit('click', evt);
+      }
     },
   }
 </script>
