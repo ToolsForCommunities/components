@@ -21,7 +21,7 @@
       :class="{
         'ml-1 mr-4': isLarge,
         'mb-1 mx-0': isSmall || isTab,
-        'material-icons-outlined': !active,
+        'material-icons-outlined': !active && !staticIcon,
       }"
     >
       {{ iconState }}
@@ -57,6 +57,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    staticIcon: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: () => ({
     windowWidth: 0,
@@ -75,7 +79,7 @@ export default {
       return this.size === 'tab' || this.$vuetify.breakpoint.smAndDown;
     },
     iconState() {
-      return this.active ? this.icon : `${this.icon}-outline`
+      return !this.active && !this.staticIcon ? `${this.icon}-outline` : this.icon;
     },
   },
   methods: {
