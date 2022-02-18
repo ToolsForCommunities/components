@@ -68,7 +68,7 @@ export default {
   computed: {
     isLarge() {
       const thresholds = this.$vuetify.breakpoint.thresholds;
-      return this.size === 'large' || this.windowWidth > thresholds.md;
+      return this.size === 'large' || this.windowWidth >= thresholds.md;
     },
     isSmall() {
       const thresholds = this.$vuetify.breakpoint.thresholds;
