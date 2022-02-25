@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex">
+  <div class="d-flex ct-layout-triplet">
     <v-navigation-drawer
       v-if="!hideSidebar"
       :app="app"
@@ -27,6 +27,7 @@
         clipped
         right
         width="375"
+        class="aside"
       >
         <slot name="aside"></slot>
       </v-navigation-drawer>
@@ -37,26 +38,26 @@
 <style scoped>
   /* Medium and bigger */
   @media screen and (min-width: 1264px)  {
-    .has-aside {
+    .ct-layout-triplet .has-aside {
       padding-right: 397px !important;
     }
   }
 
   /* Medium and smaller */
   @media screen and (max-width: 1264px)  {
-    >>> .v-navigation-drawer--mini-variant {
+    .ct-layout-triplet >>> .v-navigation-drawer--mini-variant {
       padding-right: 0;
     }
   }
 
   /* Small and smaller */
   @media screen and (max-width: 960px)  {
-    >>> main.v-content {
+    .ct-layout-triplet >>> main.v-content {
       padding-bottom: 72px !important;
       padding-left: 0 !important;
     }
 
-    >>> .sidebar.v-navigation-drawer--mini-variant {
+    .ct-layout-triplet >>> .sidebar.v-navigation-drawer--mini-variant {
       position: fixed;
       bottom: 0px;
       left: 0px;
@@ -65,15 +66,15 @@
       top: auto !important;
     }
 
-    >>> .v-navigation-drawer__content {
+    .ct-layout-triplet >>> .v-navigation-drawer__content {
       overflow: hidden;
     }
 
-    >>> .v-navigation-drawer--mini-variant .v-list {
+    .ct-layout-triplet >>> .sidebar.v-navigation-drawer--mini-variant .v-list {
       display: flex;
     }
 
-    >>> .v-navigation-drawer--right {
+    .ct-layout-triplet >>> .v-navigation-drawer--right {
       left: 0px;
       position: fixed;
       top: 0px;
@@ -82,12 +83,20 @@
       transform: translateY(0px) !important;
     }
 
+    .ct-layout-triplet >>> .v-navigation-drawer--mini-variant.aside .v-list-item > :not(:first-child) {
+      height: auto;
+      width: auto;
+      position: static;
+    }
+
     .slide-enter, .slide-leave-to {
-      transform: translateY(100vh) !important;
+      /*transform: translateY(100vh) !important;*/
+      transform: translateX(0);
     }
 
     .slide-enter-to, .slide-leave {
-      transform: translateY(0);
+      /*transform: translateY(0);*/
+      transform: translateX(100vh) !important;
     }
   }
 </style>
