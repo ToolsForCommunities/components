@@ -86,7 +86,7 @@
     .ct-layout-triplet >>> .v-navigation-drawer--mini-variant.aside .v-list-item > :not(:first-child) {
       height: auto;
       width: auto;
-      position: static;
+      position: static !important;
     }
 
     .slide-enter, .slide-leave-to {
