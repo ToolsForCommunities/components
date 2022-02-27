@@ -37,11 +37,11 @@
 
 <style scoped>
   /* Medium and bigger */
-  @media screen and (min-width: 1264px)  {
+/*  @media screen and (min-width: 1264px)  {
     .ct-layout-triplet .has-aside {
       padding-right: 397px !important;
     }
-  }
+  }*/
 
   /* Medium and smaller */
   @media screen and (max-width: 1264px)  {
